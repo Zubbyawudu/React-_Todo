@@ -2,11 +2,11 @@ import React , { useState } from 'react'
 
  function Todo() {
   
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(["eat", "sleep", "code"])
   const [newTodo , setNewTodo] = useState('')
 
   function editTodo(e) {
-
+    setNewTodo(e.target.value)
   }
   
   function addTodo(e) {
@@ -33,8 +33,29 @@ import React , { useState } from 'react'
 
       <div>
         <input type="text" placeholder='Enter Todo' value={newTodo} onChange={(e) => setNewTodo(e.target.value)} />
-        <button onClick={addTodo}>Add</button>
+        <button className='add-button' onClick={addTodo}>Add</button>
       </div>
+
+      <ol>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            <span className= "text"></span>{todo}
+            <button className='delete-button' onClick={() => deleteTodo(index)}>Delete</button>
+            <button onClick={() => moveTodoUp(index)}>👆 </button>
+            <button onClick={() => moveTodoDown(index)}>👇 </button>
+          </li>
+        ))}
+      </ol>
+
+
+
+
+
+
+
+
+
+
     </div>
   )
 }

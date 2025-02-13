@@ -10,19 +10,34 @@ import React , { useState } from 'react'
   }
   
   function addTodo(e) {
-
+    
+    if (newTodo.trim() !== '') {
+      setTodos(todos => [...todos, newTodo])
+      setNewTodo('');
+      
+    }
+    
   }
 
   function deleteTodo(index) { 
+    setTodos(todos.filter((todo, i) => i !== index))
 
   }
 
   function moveTodoUp(index) {
-
+    if (index > 0) {
+      const updatedTodos = [...todos];
+      [updatedTodos[index], updatedTodos[index - 1]] = [updatedTodos[index - 1], updatedTodos[index]];
+      setTodos(updatedTodos);
+    }
   }
 
   function moveTodoDown(index) {
-
+    if (index < todos.length - 1) {
+      const updatedTodos = [...todos];
+      [updatedTodos[index], updatedTodos[index + 1]] = [updatedTodos[index + 1], updatedTodos[index]];
+      setTodos(updatedTodos);
+    }
   }
 
 

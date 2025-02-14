@@ -2,7 +2,7 @@ import React , { useState } from 'react'
 
  function Todo() {
   
-  const [todos, setTodos] = useState(["eat", "sleep", "code"])
+  const [todos, setTodos] = useState([])
   const [newTodo , setNewTodo] = useState('')
 
   function editTodo(e) {

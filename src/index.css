@@ -1,3 +1,7 @@
+body {
+  background-color: rgba(174, 188, 202, 0.938);
+}
+
 .Todo-List {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
